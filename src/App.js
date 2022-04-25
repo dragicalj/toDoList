@@ -10,6 +10,8 @@ function App() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
+  const [doneNum, setDoneNum] = useState(0);
+
   const saveTitle = (event) => {
     setTitle(event.target.value);
   }
@@ -27,10 +29,16 @@ function App() {
     setNotes([...notes, note]);
   }
 
+  function addNote(){
+    console.log("dodat je note");
+    setDoneNum(doneNum+1);
+    console.log(doneNum);
+  }
+
   return (
     <>
-    <Header />
-    <NotesList notes={notes} />
+    <Header doneNum={doneNum} />
+    <NotesList notes={notes} add={addNote} />
     <hr />
             <div className="create-note">
                 <Input 
