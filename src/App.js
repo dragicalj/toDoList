@@ -6,6 +6,8 @@ import Input from './components/Input';
 import Button from './components/Button';
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Done from './components/Done';
+import {isFieldEmpty} from './components/Validate';
+import {showMessage} from './components/Alerts'
 
 
 function App() {
@@ -29,6 +31,7 @@ function App() {
   
   const saveNote = () => {
     
+    if (!isFieldEmpty(title) && !isFieldEmpty(content)) {
     let note = {
       id: id,
       title: title,
@@ -39,6 +42,10 @@ function App() {
     setId(id+1);
     setDoneNum(doneNum+1);
     setNotes([...notes, note]);
+    showMessage("Successfully created.", "success", "center", 3000);
+  }else{
+    showMessage("Title or content are empty", "error", "center", 3000);
+  }
   }
 
   function addNote(id,setE){
@@ -57,19 +64,7 @@ function App() {
     refreshSaved();
   }
 
-  function removeNote(id){
-    console.log("izbacen je note");
-    if(doneNum > 0){
-      setDoneNum(doneNum-1);
-    }
-    notes.forEach((note) => {
-      if(note.id === id){note.done = false;console.log(note.done);}
-        
-      
-    });
-    
-    refreshSaved();
-  }
+  
   
 
   const refreshSaved = () => {
@@ -84,7 +79,7 @@ function App() {
 
     <Routes>
       <Route path="/" element={<>
-    <NotesList notes={notes} add={addNote} remove={removeNote} />
+    <NotesList notes={notes} add={addNote}  />
     <hr />
             <div className="create-note">
                 <Input 
