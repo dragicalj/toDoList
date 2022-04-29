@@ -1,15 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {MdDoneAll} from 'react-icons/md';
 
-function Note(props) {
-    
+function Note({note,title,content,add,remove,done}) {
+    const[e,setE]=useState("To do");
   return (
     <div className="note">
           <div className="content">
-            <h5>{props.title}</h5>
-            <p>{props.content}</p>
+            <h5>{title}</h5>
+            <p>{content}</p>
           </div>
-          <button className='btn' onClick={props.add}><MdDoneAll /></button>
+          
+          {done === 1 ? <><button className='btn' onClick={() => add(note.id,setE)}>
+            <span>{e}</span> 
+            <span> <MdDoneAll /></span>
+            </button></> : 
+            <>
+           </>
+            
+            } 
+          
     </div>
   )
 }
