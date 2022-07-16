@@ -77,17 +77,22 @@ body {
   border: none;
   
 }
+
+
 .btn {
   background-color: #FD6DA1;
-  color: white;
-  padding-top: 10px;
-  padding-bottom: 5px;
+  font-size: 15px;
+  color: black;
+  padding-top: 0px;
+  padding-bottom: 20px;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 3px;
-  border-width: 0px;
-  margin-left: 128px;
-  margin-top: 80px;
+  border-width: 2px;
+  margin-left: 85px;
+  margin-top: 0px;
+  
+  height: 0px;
 }
 
 .cart-items {
@@ -114,5 +119,5 @@ body {
 
 .done-containter h1 {
   margin-left: 40px;
-  color: rgb(50, 138, 128);
+  color: grey;
 }

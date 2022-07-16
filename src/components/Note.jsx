@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {MdDoneAll} from 'react-icons/md';
 
-function Note({note,title,content,add,remove,done}) {
+function Note({note,title,content,add,done}) {
     const[e,setE]=useState("To do");
   return (
     <div className="note">
